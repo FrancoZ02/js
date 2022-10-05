@@ -1,25 +1,89 @@
-class Pizza {
-    constructor(id, nombre, ingredientes, precio){
-        this.id = id,
-        this.nombre = nombre,
-        this.ingredientes = ingredientes,
-        this.precio = precio
-    }
-}
+const Pizzas = [
+    {
+        id: 1,
+        nombre: 'Muzzarella',
+        precio: 1200,
+        ingredientes: [
+            'Muzzarella'
+        ]
+    },
+    {
+        id: 2,
+        nombre: 'Jamon y huevo',
+        precio: 1400,
+        ingredientes: [
+            'Muzzarella',
+            'Jamon',
+            'Huevo'
+        ]
+    },
+    {
+        id: 3,
+        nombre: 'Mediterranea',
+        precio: 1650,
+        ingredientes: [
+            'Aceitunas verdes',
+            'Aceitunas negras',
+            'Anchoas',
+            'Muzzarela',
+            'Tomate'
+        ]
+    },
+    {
+        id: 4,
+        nombre: 'Fugazzeta',
+        precio: 1700,
+        ingredientes: [
+            'Muzzarella',
+            'Cebolla'
+        ]
+    },
+    {
+        id: 5,
+        nombre: 'Jamon y morron',
+        precio: 1400,
+        ingredientes: [
+            'Muzzarella',
+            'Jamon',
+            'Morron'
+        ]
+    },
+    {
+        id: 6,
+        nombre: 'Casera',
+        precio: 550,
+        ingredientes: [
+            'Harina',
+            'Queso',
+            'Salsa de tomate'
+        ]
+    },
+]
 
-const muzzarella = new Pizza (1, 'muzzarella', ['muzzarella','salsa'], 1500)
-const napolitana = new Pizza (2, 'napolitana', ['muzzarella', 'salsa', 'tomate'], 1600)
-const calabresa = new Pizza (3, 'calabresa', ['muzzarella', 'salsa', 'longaniza'], 1800)
-const fugazzetta = new Pizza (4, 'fugazzetta', ['muzzarella','salsa', 'cebolla'], 1800)
-const jamonYqueso = new Pizza (5, 'jamon y queso', ['muzzarella','salsa', 'jamon'], 1800)
-const anana = new Pizza (6, 'anana', ['muzzarella','salsa', 'anana'], 1700)
+// PIZZAS IMPARES
 
-let ArrayDeObjetos = [muzzarella, napolitana, calabresa, fugazzetta, jamonYqueso, anana]
+const pizzaImpar = Pizzas.filter( Pizzas => Pizzas.id % 2 == 1)
+pizzaImpar.forEach((pizza) => console.log(`El id de la pizza ${pizza.nombre} es impar`));
 
-console.log(ArrayDeObjetos);
 
-for (let index = 0; index.nombre = 'muzzarella'; index++) {
-    console.log('soy muzzarella');
-    
-}
+console.log('--------------------------------------------------');
+// PIZZAS CON PRECIO MENOR A $600
 
+const precioMenor600 = Pizzas.filter( Pizzas => Pizzas.precio < 600)
+precioMenor600.forEach((pizza) => console.log(`La pizza ${pizza.nombre} vale menos de $600`));
+
+
+console.log('--------------------------------------------------');
+// NOMBRE DE CADA PIZZA Y SUS PRECIOS
+
+Pizzas.forEach ((pizza) => console.log(`La pizza ${pizza.nombre} vale ${pizza.precio}`));
+
+
+console.log('--------------------------------------------------');
+//TODOS LOS INGREDIENTES DE CADA PIZZA
+
+Pizzas.forEach ((pizza) => {
+    console.log(`La pizza ${pizza.nombre} viene con:`)
+    pizza.ingredientes.forEach((ingrediente) => console.log(ingrediente))
+    console.log('--------------------------------------------------');
+;})
